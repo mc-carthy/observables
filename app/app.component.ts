@@ -23,7 +23,8 @@ export class AppComponent {
                 return Observable.fromPromise(promise);
             });
 
-        keyups.subscribe(data => console.log(data));
+        var subscription = keyups.subscribe(data => console.log(data));
+        subscription.unsubscribe();
 
         // var debounced = _.debounce(function(text){
         //     var url = "https://api.spotify.com/v1/search?type=artist&q=" + text;

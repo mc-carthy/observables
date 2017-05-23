@@ -32,7 +32,8 @@ System.register(['angular2/core', 'rxjs/Rx'], function(exports_1) {
                         var promise = $.getJSON(url);
                         return Rx_1.Observable.fromPromise(promise);
                     });
-                    keyups.subscribe(function (data) { return console.log(data); });
+                    var subscription = keyups.subscribe(function (data) { return console.log(data); });
+                    subscription.unsubscribe();
                     // var debounced = _.debounce(function(text){
                     //     var url = "https://api.spotify.com/v1/search?type=artist&q=" + text;
                     //     $.getJSON(url, function(artists){
