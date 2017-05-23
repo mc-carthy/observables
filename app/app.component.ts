@@ -1,7 +1,16 @@
 /// <reference path="../typings/tsd.d.ts" />
 
 import {Component} from 'angular2/core';
-import {Observable} from 'rxjs/Rx';
+import {Observable} from 'rxjs/Observable';
+
+import 'rxjs/add/observable/fromEvent';
+import 'rxjs/add/observable/fromPromise';
+
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/distinctUntilChanged';
+import 'rxjs/add/operator/mergeMap';
 
 @Component({
     selector: 'my-app',
@@ -24,25 +33,6 @@ export class AppComponent {
             });
 
         var subscription = keyups.subscribe(data => console.log(data));
-        subscription.unsubscribe();
 
-        // var debounced = _.debounce(function(text){
-        //     var url = "https://api.spotify.com/v1/search?type=artist&q=" + text;
-        //     $.getJSON(url, function(artists){
-        //         console.log(artists);
-        //     })
-        // }, 400);
-
-        // $("#search").keyup(function(e){
-        //     var text = e.target.value;
-
-        //     if (text.length < 3)
-        //     {
-        //         return;
-        //     }
-
-        //     debounced(text);
-
-        // });
     }
 }
